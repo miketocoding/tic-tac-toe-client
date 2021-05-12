@@ -1,8 +1,20 @@
-# Tic-Tac-Toe Game #
+# Tic-Tac-Toe: A Game of Skill
 
-Tic-tac-toe game recreated by Michael Van Le. This is a playable single or two person game where the player tests their skills against themself or another opponent.
+Tic-tac-toe game recreated by Michael Van Le. This is a single or two person game where the player tests their skills against themself or another opponent. This application will allows the user to sign up, log in, log out, and play the game of tic-tac-toe. This project is a stepping stone to gaining more knowledge and experience in the world of software development.
 
-## Rules/Instructions ##
+## Planning
+
+### User Stories
+- As a user, I want to be able to sign up/in so I can play the game.
+- As a user, I want to be able to sign out so no one else can alter my account.
+- As a user, I want to be able to start/restart the game so I can play again.
+- As a user, I want the player to start as X then switch to O, every game, so we can keep the game fair with starting X player.
+- As a user, I want to only be able to select available positions so that there is no overwriting.
+- As a user, I want the system to display when I win/lose/tie.
+- As a user, I want the board to be unclickable once the game is over.
+- As a user, I want to be able to play again once the game is over. 
+
+### Rules/Instructions
 
 Please watch [this video](https://www.youtube.com/watch?v=USEjXNCTvcc) to learn how to play Tic-tac-toe.
 
