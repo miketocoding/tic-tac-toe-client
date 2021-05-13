@@ -12,7 +12,14 @@ Tic-tac-toe game recreated by Michael Van Le. This is a single or two person gam
 - As a user, I want to only be able to select available positions so that there is no overwriting.
 - As a user, I want the system to display when I win/lose/tie.
 - As a user, I want the board to be unclickable once the game is over.
-- As a user, I want to be able to play again once the game is over. 
+- As a user, I want to be able to play again once the game is over.
+
+### Wireframe
+Portrait Orientation, v1:
+![Portrait tic-tac-toe wireframe v1](https://i.imgur.com/i3962g6.jpeg "tic-tac-toe wireframe v1")
+
+Landscape Orientation, v1:
+![Landscape tic-tac-toe wireframe v1](https://i.imgur.com/v256eG7.jpeg "tic-tac-toe wireframe v1")
 
 ### Rules/Instructions
 
