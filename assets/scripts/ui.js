@@ -17,9 +17,10 @@ const signInSuccess = function (res) {
   $('#sign-in').trigger('reset')
   console.log(res)
   store.user = res.user
-  $('#messaging').text(res.user.email + 'signed in successfully!')
+  $('#messaging').text(res.user.email + ' has signed in successfully!')
   $('#after-sign-in').show()
   $('#before-sign-in').hide()
+  $('#after-new-game').hide()
 }
 
 const signInFailure = function (err) {
@@ -34,9 +35,6 @@ const signOutSuccess = function () {
   $('#before-sign-in').show()
   // Hide the "after sign in" elements
   $('#after-sign-in').hide()
-  // Emptying the data I had displayed before
-  $('#movie-display-create').html('')
-  $('#movie-display-read').html('')
   // Clear all the forms!
   $('form').trigger('reset')
 }
@@ -48,6 +46,7 @@ const signOutFailure = function () {
 const newGameSuccess = function (res) {
   $('#messaging').text('New Game Created!')
   console.log(res)
+  $('#after-new-game').show()
 }
 
 const newGameFailure = function (err) {
