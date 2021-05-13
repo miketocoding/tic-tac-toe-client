@@ -1,4 +1,5 @@
 'use strict'
+const tttEvents = require('./events.js')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -8,4 +9,7 @@
 
 $(() => {
   // your JS code goes here
+  $('#sign-up').on('submit', tttEvents.onSignUp)
+  $('#sign-in').on('submit', tttEvents.onSignIn)
+  $('#sign-out').on('click', tttEvents.onSignOut)
 })
