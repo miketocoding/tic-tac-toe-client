@@ -18,19 +18,29 @@ const signIn = function (data) {
   })
 }
 
-const signOut = function (data) {
+const signOut = function () {
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
     headers: {
-      Authorization: `Bearer $(store.user.token)`
+      Authorization: `Bearer ${store.user.token}`
     }
+  })
+}
 
+const newGame = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`,
+      body: '{}'
+    }
   })
 }
 
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  newGame
 }
