@@ -51,7 +51,7 @@ const newGameSuccess = function (res) {
   console.log(store.user.gameData)
   store.user.playerPos = 0
   console.log(store.user.playerPos)
-  console.log(playerPos())
+  // console.log(playerPos())
   // player starting position will be 0 which is 'X' and 1 which will be 'O'
 }
 
