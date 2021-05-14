@@ -44,11 +44,15 @@ const signOutFailure = function () {
 }
 
 const newGameSuccess = function (res) {
-  $('#messaging').text('New Game Created! You are player X')
+  $('#messaging').text(`New Game Created! You are player ${store.user.playerPos}`)
   console.log(res)
   $('#after-new-game').show()
   store.user.gameData = res.gameData
   console.log(store.user.gameData)
+  store.user.playerPos = 0
+  console.log(store.user.playerPos)
+  console.log(playerPos())
+  // player starting position will be 0 which is 'X' and 1 which will be 'O'
 }
 
 const newGameFailure = function (err) {
@@ -56,6 +60,29 @@ const newGameFailure = function (err) {
   $('#messaging').text('Error! New game not created.')
 }
 
+const togglePlayerPosSuccess = function (res) {
+  console.log(store.user.playerPos)
+  if (store.user.playerPos === 0) {
+    store.user.playerPos++
+  } else {
+    store.user.playerPos--
+  }
+  console.log(store.user.playerPos)
+  return store.user.playerPos
+}
+
+const playerPos = function () {
+  $('#messaging').text(`You are player ${playerPos()}`)
+  console.log(store.user.playerPos)
+  return (store.user.playerPos === 0 ? 'X' : 'Y')
+  // if (store.user.playerPos === 0) {
+  //   return 'X'
+  // } else {
+  //   return 'Y'
+  // }
+}
+
+const togglePlayerPosFailure = function () {}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -64,5 +91,8 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  togglePlayerPosSuccess,
+  togglePlayerPosFailure,
+  playerPos
 }

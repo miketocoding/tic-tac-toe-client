@@ -38,9 +38,17 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onTogglePlayerPos = function () {
+  event.preventDefault()
+  api.togglePlayerPos()
+    .then(ui.togglePlayerPosSuccess)
+    .catch(ui.togglePlayerPosFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onTogglePlayerPos
 }

@@ -39,9 +39,15 @@ const newGame = function () {
   })
 }
 
+const togglePlayerPos = function () {
+  console.log(togglePlayerPos)
+  return $.ajax({})
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  newGame
+  newGame,
+  togglePlayerPos
 }
