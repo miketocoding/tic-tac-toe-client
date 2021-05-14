@@ -14,4 +14,5 @@ $(() => {
   $('#sign-out').on('click', tttEvents.onSignOut)
   $('#new-game').on('click', tttEvents.onNewGame)
   // $('#after-sign-in').hide()
+  // $('#cell1').on('click', tttEvents.on)
 })
