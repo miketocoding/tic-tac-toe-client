@@ -24,6 +24,8 @@
   font-size: 15vh;
   min-height: calc(100% / 3);
   text-shadow: 4px 2px rgba(0, 0, 0, .25);
+  cursor: pointer;
+  // cursor: pointer makes the pointer change when hovering
   &:nth-child(3n) {
     border-right: 0;
   }

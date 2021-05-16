@@ -38,18 +38,18 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-const onTogglePlayerPos = function () {
-  event.preventDefault()
-  api.togglePlayerPos()
-    .then(ui.togglePlayerPosSuccess)
-    .catch(ui.togglePlayerPosFailure)
-}
+// const onTogglePlayerPos = function () {
+//   event.preventDefault()
+//   api.togglePlayerPos()
+//     .then(ui.togglePlayerPosSuccess)
+//     .catch(ui.togglePlayerPosFailure)
+// }
 
-const onCellMakeMove = function (event) {
+const onMakeMove = function (event) {
   event.preventDefault()
-  api.cellMakeMove()
-    .then()
-    .catch()
+  api.makeMove()
+    .then(ui.makeMoveSuccess)
+    .catch(ui.makeMoveFailure)
 }
 
 module.exports = {
@@ -57,6 +57,6 @@ module.exports = {
   onSignIn,
   onSignOut,
   onNewGame,
-  onTogglePlayerPos,
-  onCellMakeMove
+  // onTogglePlayerPos,
+  onMakeMove
 }

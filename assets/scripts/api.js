@@ -39,12 +39,21 @@ const newGame = function () {
   })
 }
 
-const togglePlayerPos = function () {
-  console.log(togglePlayerPos)
-  return $.ajax({})
-}
+// const togglePlayerPos = function () {
+//   console.log(togglePlayerPos)
+//   return $.ajax({})
+// }
 
-const cellMakeMove = function (gameId, gameData, dataIndex) {
+// troubleshooting to see if function works
+// let currentPlayer = 'X'
+// const makeMove = function () {
+//   console.log('click')
+//   const box = $(event.target)
+//   box.text(currentPlayer)
+//   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+// }
+
+const makeMove = function (gameId, gameData, dataIndex) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + gameId,
@@ -67,6 +76,6 @@ module.exports = {
   signIn,
   signOut,
   newGame,
-  togglePlayerPos,
-  cellMakeMove
+  // togglePlayerPos,
+  makeMove
 }

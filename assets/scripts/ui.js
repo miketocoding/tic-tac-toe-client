@@ -46,13 +46,13 @@ const signOutFailure = function () {
 let currentPlayer = 'X'
 
 const newGameSuccess = function (res) {
-  $('#messaging').text('New Game Created! You are player X')
+  $('#messaging').text(`New Game Created! You are player ${currentPlayer}`)
   console.log(res)
   $('#after-new-game').show()
   store.user.gameData = res.gameData
   console.log(store.user.gameData)
-  store.user.playerPos = 0
-  console.log(store.user.playerPos)
+  store.user.playerTurn = currentPlayer
+  console.log(store.user.currentPlayer)
   // const playerStart = 'X'
   // console.log(playerPos())
   // player starting position will be 0 which is 'X' and 1 which will be 'O'
@@ -63,16 +63,24 @@ const newGameFailure = function (err) {
   $('#messaging').text('Error! New game not created.')
 }
 
-const togglePlayerPosSuccess = function (res) {
-  console.log(store.user.playerPos)
-  if (store.user.playerPos === 'X') {
-    store.user.playerPos = 'O'
-  } else {
-    store.user.playerPos = 'X'
-  }
-  console.log(store.user.playerPos)
-  return store.user.playerPos
+const makeMoveSuccess = function (res) {
+  console.log('click')
+  const box = $(event.target)
+  box.text(currentPlayer)
+  currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 }
+
+const makeMoveFailure = function () {}
+// const togglePlayerPosSuccess = function (res) {
+//   console.log(store.user.playerPos)
+//   if (store.user.playerPos === 'X') {
+//     store.user.playerPos = 'O'
+//   } else {
+//     store.user.playerPos = 'X'
+//   }
+//   console.log(store.user.playerPos)
+//   return store.user.playerPos
+// }
 
 // const playerPos = function () {
 // $('#messaging').text(`You are player ${playerPos()}`)
@@ -86,7 +94,8 @@ const togglePlayerPosSuccess = function (res) {
 // }
 // }
 
-const togglePlayerPosFailure = function () {}
+// const togglePlayerPosFailure = function () {}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -96,7 +105,9 @@ module.exports = {
   signOutFailure,
   newGameSuccess,
   newGameFailure,
-  togglePlayerPosSuccess,
-  togglePlayerPosFailure
+  makeMoveSuccess,
+  makeMoveFailure
+  // togglePlayerPosSuccess,
+  // togglePlayerPosFailure
   // playerPos
 }
