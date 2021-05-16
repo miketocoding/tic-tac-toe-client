@@ -50,7 +50,16 @@ const makeMove = function () {
   console.log('click')
   const box = $(event.target)
   box.text(currentPlayer)
+  console.log(event.target, 'this is event.target')
+  console.log(store.user.game, 'this is game data')
+  // box.attr()
+  const cellData = store.user.game.cells
+  store.user.game.cells[0] = currentPlayer
+  console.log(cellData[0], 'cell data at index 0')
+  console.log(cellData, 'this is cell data')
   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+  // make the box unclibkable after inital click
+  box.off('click')
 }
 
 // const makeMove = function (gameId, gameData, dataIndex) {
