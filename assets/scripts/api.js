@@ -44,32 +44,32 @@ const newGame = function () {
 //   return $.ajax({})
 // }
 
-// troubleshooting to see if function works
-// let currentPlayer = 'X'
-// const makeMove = function () {
-//   console.log('click')
-//   const box = $(event.target)
-//   box.text(currentPlayer)
-//   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-// }
-
-const makeMove = function (gameId, gameData, dataIndex) {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/games/' + gameId,
-    gameData: {
-      game: {
-        cell: {
-          index: dataIndex,
-          value: './../public/red-x.png'
-        }
-      }
-    },
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
-  })
+// troubleshooting to see if function works for switching x and o
+let currentPlayer = 'X'
+const makeMove = function () {
+  console.log('click')
+  const box = $(event.target)
+  box.text(currentPlayer)
+  currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 }
+
+// const makeMove = function (gameId, gameData, dataIndex) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: config.apiUrl + '/games/' + gameId,
+//     headers: {
+//       Authorization: `Bearer ${store.user.token}`
+//     },
+//     gameData: {
+//       game: {
+//         cell: {
+//           index: dataIndex,
+//           value: './../public/red-x.png'
+//         }
+//       }
+//     }
+//   })
+// }
 
 module.exports = {
   signUp,

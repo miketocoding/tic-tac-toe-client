@@ -17,7 +17,7 @@ const signInSuccess = function (res) {
   $('#sign-in').trigger('reset')
   console.log(res)
   store.user = res.user
-  $('#messaging').text(res.user.email + ' has signed in successfully!')
+  $('#messaging').text(res.user.email + ', has signed in successfully!')
   $('#after-sign-in').show()
   $('#before-sign-in').hide()
   $('#after-new-game').hide()
@@ -49,13 +49,10 @@ const newGameSuccess = function (res) {
   $('#messaging').text(`New Game Created! You are player ${currentPlayer}`)
   console.log(res)
   $('#after-new-game').show()
-  store.user.gameData = res.gameData
-  console.log(store.user.gameData)
-  store.user.playerTurn = currentPlayer
-  console.log(store.user.currentPlayer)
-  // const playerStart = 'X'
-  // console.log(playerPos())
-  // player starting position will be 0 which is 'X' and 1 which will be 'O'
+  store.user.game = res.game
+  console.log(store.user.game, 'The game data')
+  // store.user.playerTurn = currentPlayer
+  // console.log(store.user.currentPlayer, 'The player data')
 }
 
 const newGameFailure = function (err) {

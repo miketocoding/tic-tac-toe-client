@@ -48,8 +48,8 @@ const onNewGame = function (event) {
 const onMakeMove = function (event) {
   event.preventDefault()
   api.makeMove()
-    .then(ui.makeMoveSuccess)
-    .catch(ui.makeMoveFailure)
+  // .then(ui.makeMoveSuccess)
+  // .catch(ui.makeMoveFailure)
 }
 
 module.exports = {
