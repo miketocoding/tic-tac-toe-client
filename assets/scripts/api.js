@@ -44,10 +44,29 @@ const togglePlayerPos = function () {
   return $.ajax({})
 }
 
+const cellMakeMove = function (gameId, gameData, dataIndex) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/' + gameId,
+    gameData: {
+      game: {
+        cell: {
+          index: dataIndex,
+          value: './../public/red-x.png'
+        }
+      }
+    },
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   newGame,
-  togglePlayerPos
+  togglePlayerPos,
+  cellMakeMove
 }

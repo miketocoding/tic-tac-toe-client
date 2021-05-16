@@ -45,10 +45,18 @@ const onTogglePlayerPos = function () {
     .catch(ui.togglePlayerPosFailure)
 }
 
+const onCellMakeMove = function (event) {
+  event.preventDefault()
+  api.cellMakeMove()
+    .then()
+    .catch()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
-  onTogglePlayerPos
+  onTogglePlayerPos,
+  onCellMakeMove
 }

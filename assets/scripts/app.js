@@ -16,6 +16,7 @@ $(() => {
   $('#toggle-player').on('click', tttEvents.onTogglePlayerPos)
   // $('#after-sign-in').hide()
   // $('#cell1').on('click', tttEvents.onAddX)
+  $(event.target).on('click', tttEvents.onCellMakeMove)
   // $('#cell0').on('click', function () {
   //   $('<img src="./../../public/red-x.png">').appendTo('#cell0')
   // })
