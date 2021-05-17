@@ -44,6 +44,8 @@ const onMakeMove = function (event) {
   event.preventDefault()
   console.log('click')
   const box = $(event.target)
+  let gameOver = store.game.over
+  console.log('gameOver status, is game over? ', gameOver)
   if ($(box).text() === '') {
     box.text(currentPlayer)
     console.log(event.target, 'this is event.target')
@@ -59,21 +61,29 @@ const onMakeMove = function (event) {
     store.game.cells[cellIndex] = cellValue
 
     console.log(arrayData, 'this is array data')
+    if (
+      (arrayData[0] === arrayData[1] && arrayData[0] === arrayData[2] && arrayData[0] !== '') ||
+      (arrayData[3] === arrayData[4] && arrayData[3] === arrayData[5] && arrayData[3] !== '') ||
+      (arrayData[6] === arrayData[7] && arrayData[6] === arrayData[8] && arrayData[6] !== '') ||
+      (arrayData[0] === arrayData[3] && arrayData[0] === arrayData[6] && arrayData[0] !== '') ||
+      (arrayData[1] === arrayData[4] && arrayData[1] === arrayData[7] && arrayData[1] !== '') ||
+      (arrayData[2] === arrayData[5] && arrayData[2] === arrayData[8] && arrayData[2] !== '') ||
+      (arrayData[0] === arrayData[4] && arrayData[0] === arrayData[8] && arrayData[0] !== '') ||
+      (arrayData[2] === arrayData[4] && arrayData[2] === arrayData[6] && arrayData[2] !== '')
+    ) {
+      gameOver = true
+      console.log('Game status, is game over?', gameOver)
+      // this is broken, you can't click after game is over and in new game
+      $('.box').off('click')
+      // display who won
+      $('#messaging').text('Game Over, we have a winner')
+    }
+
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-    // if (
-    //   (arrayData[0] === arrayData[1] && arrayData[0] === arrayData[2]) ||
-    //   (arrayData[3] === arrayData[4] && arrayData[3] === arrayData[5]) ||
-    //   (arrayData[6] === arrayData[7] && arrayData[6] === arrayData[8]) ||
-    //   (arrayData[0] === arrayData[3] && arrayData[0] === arrayData[6]) ||
-    //   (arrayData[1] === arrayData[4] && arrayData[1] === arrayData[7]) ||
-    //   (arrayData[2] === arrayData[5] && arrayData[2] === arrayData[8]) ||
-    //   (arrayData[0] === arrayData[4] && arrayData[0] === arrayData[8]) ||
-    //   (arrayData[2] === arrayData[4] && arrayData[2] === arrayData[6]) ||
-    // ) {}
   } else {
     box.off('click', onMakeMove)
   }
-  api.makeMove(cellValue, cellIndex)
+  api.makeMove(cellValue, cellIndex, gameOver)
     .then(ui.makeMoveSuccess)
   // .catch(ui.makeMoveFailure)
 }

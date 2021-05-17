@@ -63,7 +63,7 @@ const newGame = function () {
 //   }
 // }
 
-const makeMove = function (cellValue, cellIndex) {
+const makeMove = function (cellValue, cellIndex, gameOver) {
   // console.log('this is the gameId: ', gameId)
   console.log('this is the cellValue: ', cellValue)
   console.log('this is the cellIndex: ', cellIndex)
@@ -79,7 +79,7 @@ const makeMove = function (cellValue, cellIndex) {
           index: cellIndex,
           value: cellValue
         },
-        over: false
+        over: gameOver
       }
     }
   })
