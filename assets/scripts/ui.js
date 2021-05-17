@@ -49,12 +49,13 @@ const newGameSuccess = function (res) {
   $('#messaging').text(`New Game Created! You are player ${currentPlayer}`)
   console.log(res, 'newGameSuccess response')
   $('#after-new-game').show()
-  store.user.game = res.game
-  console.log(store.user.game, 'The game data')
+  store.game = res.game
+  console.log(store.game, 'The game data')
   // wipe the board if when 'New Game pressed'
   $('.box').text('')
-  // store.user.playerTurn = currentPlayer
-  // console.log(store.user.currentPlayer, 'The player data')
+  store.game._id = res.game._id
+  console.log(store.game._id, 'The game ID')
+  console.log(res.game._id, 'Also the game ID?')
 }
 
 const newGameFailure = function (err) {

@@ -39,12 +39,6 @@ const newGame = function () {
   })
 }
 
-// const togglePlayerPos = function () {
-//   console.log(togglePlayerPos)
-//   return $.ajax({})
-// }
-
-// troubleshooting to see if function works for switching x and o
 let currentPlayer = 'X'
 const makeMove = function () {
   console.log('click')
@@ -52,13 +46,16 @@ const makeMove = function () {
   if ($(box).text() === '') {
     box.text(currentPlayer)
     console.log(event.target, 'this is event.target')
-    console.log(store.user.game, 'this is game data')
-    const arrayData = store.user.game.cells
+    console.log(store.game, 'this is game data')
+    const arrayData = store.game.cells
+    // const cellValue = store.game.cells
     console.log('cell value data', $(box).text())
+    const cellValue = $(box).text()
+    console.log(cellValue, 'this is the cell value through a variable')
     console.log('cell string data', $('.box').text())
-    const cellValue = box.data('cell-index')
-    console.log('cell index position', cellValue)
-    arrayData[cellValue] = currentPlayer
+    const cellIndex = box.data('cell-index')
+    console.log('cell index position', cellIndex)
+    arrayData[cellIndex] = currentPlayer
 
     console.log(arrayData, 'this is array data')
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
@@ -67,9 +64,7 @@ const makeMove = function () {
   }
 }
 
-// const dataAttr = { 'cell-index': currentPlayer }
-
-// const makeMove = function (gameId, gameData, dataIndex) {
+// const makeMove = function (gameId, cellValue, cellIndex) {
 //   return $.ajax({
 //     method: 'PATCH',
 //     url: config.apiUrl + '/games/' + gameId,
@@ -79,9 +74,10 @@ const makeMove = function () {
 //     gameData: {
 //       game: {
 //         cell: {
-//           index: dataIndex,
-//           value: './../public/red-x.png'
-//         }
+//           index: cellValue,
+//           value: cellIndex
+//         },
+//        over: false
 //       }
 //     }
 //   })
@@ -92,7 +88,5 @@ module.exports = {
   signIn,
   signOut,
   newGame,
-  // togglePlayerPos,
   makeMove
-  // dataAttr
 }
