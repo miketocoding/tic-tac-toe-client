@@ -67,9 +67,10 @@ const newGameFailure = function (err) {
 
 const makeMoveSuccess = function (res) {
   console.log('click')
-  const box = $(event.target)
-  box.text(currentPlayer)
-  currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+  console.log('This is makeMoveSuccess response ', res)
+  // const box = $(event.target)
+  // box.text(currentPlayer)
+  // currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 }
 
 const makeMoveFailure = function () {}
