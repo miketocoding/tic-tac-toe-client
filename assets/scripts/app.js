@@ -25,28 +25,4 @@ $(() => {
   // $('#cell0').on('click', function () {
   //   $('<img src="./../../public/red-x.png">').appendTo('#cell0')
   // })
-  // $('#cell1').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell1')
-  // })
-  // $('#cell2').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell2')
-  // })
-  // $('#cell3').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell3')
-  // })
-  // $('#cell4').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell4')
-  // })
-  // $('#cell5').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell5')
-  // })
-  // $('#cell6').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell6')
-  // })
-  // $('#cell7').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell7')
-  // })
-  // $('#cell8').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell8')
-  // })
 })

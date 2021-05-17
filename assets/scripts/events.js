@@ -3,6 +3,7 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -37,18 +38,43 @@ const onNewGame = function (event) {
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
-
-// const onTogglePlayerPos = function () {
-//   event.preventDefault()
-//   api.togglePlayerPos()
-//     .then(ui.togglePlayerPosSuccess)
-//     .catch(ui.togglePlayerPosFailure)
-// }
+let currentPlayer = 'X'
 
 const onMakeMove = function (event) {
   event.preventDefault()
-  api.makeMove()
-  // .then(ui.makeMoveSuccess)
+  console.log('click')
+  const box = $(event.target)
+  if ($(box).text() === '') {
+    box.text(currentPlayer)
+    console.log(event.target, 'this is event.target')
+    console.log(store.game, 'this is game data')
+    const arrayData = store.game.cells
+    console.log('cell value data', $(box).text())
+    var cellValue = $(box).text()
+    console.log(cellValue, 'this is the cell value through a variable')
+    console.log('cell string data', $('.box').text())
+    var cellIndex = box.data('cell-index')
+    console.log('cell index position', cellIndex)
+    arrayData[cellIndex] = currentPlayer
+    store.game.cells[cellIndex] = cellValue
+
+    console.log(arrayData, 'this is array data')
+    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+    // if (
+    //   (arrayData[0] === arrayData[1] && arrayData[0] === arrayData[2]) ||
+    //   (arrayData[3] === arrayData[4] && arrayData[3] === arrayData[5]) ||
+    //   (arrayData[6] === arrayData[7] && arrayData[6] === arrayData[8]) ||
+    //   (arrayData[0] === arrayData[3] && arrayData[0] === arrayData[6]) ||
+    //   (arrayData[1] === arrayData[4] && arrayData[1] === arrayData[7]) ||
+    //   (arrayData[2] === arrayData[5] && arrayData[2] === arrayData[8]) ||
+    //   (arrayData[0] === arrayData[4] && arrayData[0] === arrayData[8]) ||
+    //   (arrayData[2] === arrayData[4] && arrayData[2] === arrayData[6]) ||
+    // ) {}
+  } else {
+    box.off('click', onMakeMove)
+  }
+  api.makeMove(cellValue, cellIndex)
+    .then(ui.makeMoveSuccess)
   // .catch(ui.makeMoveFailure)
 }
 
@@ -57,6 +83,5 @@ module.exports = {
   onSignIn,
   onSignOut,
   onNewGame,
-  // onTogglePlayerPos,
   onMakeMove
 }
