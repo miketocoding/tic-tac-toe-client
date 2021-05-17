@@ -54,8 +54,10 @@ const newGameSuccess = function (res) {
   // wipe the board if when 'New Game pressed'
   $('.box').text('')
   store.game._id = res.game._id
+  const gameId = store.game._id
   console.log(store.game._id, 'The game ID')
   console.log(res.game._id, 'Also the game ID?')
+  console.log(gameId, 'This is store.game._id in a variable')
 }
 
 const newGameFailure = function (err) {
