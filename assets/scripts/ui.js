@@ -15,7 +15,7 @@ const signUpFailure = function (err) {
 
 const signInSuccess = function (res) {
   $('#sign-in').trigger('reset')
-  console.log(res)
+  console.log(res, 'signInSuccess response')
   store.user = res.user
   $('#messaging').text(res.user.email + ', has signed in successfully!')
   $('#after-sign-in').show()
@@ -47,7 +47,7 @@ let currentPlayer = 'X'
 
 const newGameSuccess = function (res) {
   $('#messaging').text(`New Game Created! You are player ${currentPlayer}`)
-  console.log(res)
+  console.log(res, 'newGameSuccess response')
   $('#after-new-game').show()
   store.user.game = res.game
   console.log(store.user.game, 'The game data')
