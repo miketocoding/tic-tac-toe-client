@@ -51,6 +51,8 @@ const newGameSuccess = function (res) {
   $('#after-new-game').show()
   store.user.game = res.game
   console.log(store.user.game, 'The game data')
+  // wipe the board if when 'New Game pressed'
+  $('.box').text('')
   // store.user.playerTurn = currentPlayer
   // console.log(store.user.currentPlayer, 'The player data')
 }

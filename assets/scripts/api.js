@@ -53,14 +53,30 @@ const makeMove = function () {
   console.log(event.target, 'this is event.target')
   console.log(store.user.game, 'this is game data')
   // box.attr()
-  const cellData = store.user.game.cells
-  store.user.game.cells[0] = currentPlayer
-  console.log(cellData[0], 'cell data at index 0')
-  console.log(cellData, 'this is cell data')
+  const arrayData = store.user.game.cells
+  // store.user.game.cells[0] = currentPlayer
+  // console.log(cellData[0], 'cell data at index 0')
+  // console.log(cellData[1], 'cell data at index 1')
+  // console.log(cellData[2], 'cell data at index 2')
+  // console.log(cellData[3], 'cell data at index 3')
+  // console.log(cellData[4], 'cell data at index 4')
+  console.log('cell data', $('.box').text())
+  const cellValue = $(event.target).data('cell-index')
+  console.log('cell data using data', cellValue)
+  arrayData[cellValue] = currentPlayer
+
+  console.log(arrayData, 'this is array data')
   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   // make the box unclibkable after inital click
-  box.off('click')
+  // need to make this if text !=== '' make unclickable
+  if (box.is('') !== '') {
+    box.off('click')
+  } else {
+    box.on('click')
+  }
 }
+
+// const dataAttr = { 'cell-index': currentPlayer }
 
 // const makeMove = function (gameId, gameData, dataIndex) {
 //   return $.ajax({
@@ -86,5 +102,6 @@ module.exports = {
   signOut,
   newGame,
   // togglePlayerPos,
-  makeMove
+  makeMove,
+  // dataAttr
 }

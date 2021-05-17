@@ -18,6 +18,8 @@ $(() => {
   // $('#cell1').on('click', tttEvents.onAddX)
 
   $('.box').on('click', tttEvents.onMakeMove)
+  // $('.box').on('click', tttEvents.dataAttr, tttEvents.onMakeMove)
+
   // $(event.target).on('click', tttEvents.onMakeMove)
 
   // $('#cell0').on('click', function () {
