@@ -73,11 +73,11 @@ const makeMove = function (cellValue, cellIndex) {
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    gameData: {
+    data: {
       game: {
         cell: {
-          index: cellValue,
-          value: cellIndex
+          index: cellIndex,
+          value: cellValue
         },
         over: false
       }
