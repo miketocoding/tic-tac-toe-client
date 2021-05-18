@@ -77,11 +77,19 @@ const onMakeMove = function (event) {
       $('.box').off('click')
       // display who won
       $('#messaging').text('Game Over, we have a winner')
+      // else if for a draw
+    } else if (arrayData[0] !== '' && arrayData[1] !== '' && arrayData[2] !== '' && arrayData[3] !== '' && arrayData[4] !== '' && arrayData[5] !== '' && arrayData[6] !== '' && arrayData[7] !== '' && arrayData[8] !== '') {
+      gameOver = true
+      console.log('Game status, is game over?', gameOver)
+      $('.box').off('click')
+      $('#messaging').text('Game Over, it\'s a draw')
     }
 
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   } else {
-    box.off('click', onMakeMove)
+    // box.off('click', onMakeMove)
+    // originally had box.off() however making it it else nothing allows me
+    // to click on the cell when i press new game
   }
   api.makeMove(cellValue, cellIndex, gameOver)
     .then(ui.makeMoveSuccess)
