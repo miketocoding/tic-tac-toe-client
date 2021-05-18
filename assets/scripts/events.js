@@ -39,40 +39,29 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-// const onTogglePlayerPos = function () {
-//   event.preventDefault()
-//   api.togglePlayerPos()
-//     .then(ui.togglePlayerPosSuccess)
-//     .catch(ui.togglePlayerPosFailure)
-// }
-let currentPlayer = 'X'
-
 const onMakeMove = function (event) {
   event.preventDefault()
   console.log('click')
   const box = $(event.target)
-  if ($(box).text() === '') {
-    box.text(currentPlayer)
+  const gameOver = store.gameOver
+  console.log('gameOver status, is game over? ', gameOver)
+  if ($(box).text() === '' && gameOver === false) {
+    console.log('IS GAME OVER???', gameOver)
+    box.text(store.currentPlayer)
     console.log(event.target, 'this is event.target')
     console.log(store.game, 'this is game data')
     const arrayData = store.game.cells
-    // const cellValue = store.game.cells
-    console.log('cell value data', $(box).text())
-    var cellValue = $(box).text()
-    console.log(cellValue, 'this is the cell value through a variable')
-    console.log('cell string data', $('.box').text())
-    var cellIndex = box.data('cell-index')
+    const cellIndex = box.data('cell-index')
     console.log('cell index position', cellIndex)
-    arrayData[cellIndex] = currentPlayer
+    // pick one
+    arrayData[cellIndex] = store.currentPlayer
 
     console.log(arrayData, 'this is array data')
-    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-  } else {
-    box.off('click', onMakeMove)
-  }
-  api.makeMove(cellValue, cellIndex)
-    .then(ui.makeMoveSuccess)
+
+    api.makeMove(store.currentPlayer, cellIndex, gameOver)
+      .then(ui.makeMoveSuccess)
   // .catch(ui.makeMoveFailure)
+  }
 }
 
 module.exports = {
@@ -80,6 +69,5 @@ module.exports = {
   onSignIn,
   onSignOut,
   onNewGame,
-  // onTogglePlayerPos,
   onMakeMove
 }

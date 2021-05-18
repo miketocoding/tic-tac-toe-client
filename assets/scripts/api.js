@@ -48,7 +48,6 @@ const newGame = function () {
 //     console.log(event.target, 'this is event.target')
 //     console.log(store.game, 'this is game data')
 //     const arrayData = store.game.cells
-//     // const cellValue = store.game.cells
 //     console.log('cell value data', $(box).text())
 //     const cellValue = $(box).text()
 //     console.log(cellValue, 'this is the cell value through a variable')
@@ -64,7 +63,10 @@ const newGame = function () {
 //   }
 // }
 
-const makeMove = function (cellValue, cellIndex) {
+const makeMove = function (cellValue, cellIndex, gameOver) {
+  // console.log('this is the gameId: ', gameId)
+  console.log('this is the cellValue: ', cellValue)
+  console.log('this is the cellIndex: ', cellIndex)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game._id,
@@ -77,7 +79,7 @@ const makeMove = function (cellValue, cellIndex) {
           index: cellIndex,
           value: cellValue
         },
-        over: false
+        over: gameOver
       }
     }
   })
