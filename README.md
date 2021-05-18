@@ -2,6 +2,9 @@
 
 Tic-tac-toe game recreated by Michael Van Le. This is a single or two person game where the player tests their skills against themself or another opponent. This application will allows the user to sign up, log in, log out, and play the game of tic-tac-toe. This project is a stepping stone to gaining more knowledge and experience in the world of software development.
 
+## Important Links
+- [Mike's tic-tac-toe Client](https://miketocoding.github.io/tic-tac-toe-client/)
+
 ## Planning
 
 ### User Stories
