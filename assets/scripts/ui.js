@@ -44,7 +44,7 @@ const signOutFailure = function () {
 }
 
 const newGameSuccess = function (res) {
-  $('#messaging').text(`New Game Created! You are player ${store.currentPlayer}`)
+  $('#messaging').text('New Game Created! You are player X')
   console.log(res, 'newGameSuccess response')
   $('#after-new-game').show()
   store.game = res.game
