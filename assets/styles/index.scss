@@ -1,7 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Orbitron:wght@700&display=swap');
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: black;
+  color: #78F4FF;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+}
 
 .container {
   height: 80vh;
+  padding-top: 25px;
 }
 
 .board {
@@ -13,12 +29,13 @@
 .box {
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-right: 5px solid black;
-  border-bottom: 5px solid black;
-  color: black;
+  background-color: black;
+  border-right: 5px solid #78F4FF;
+  border-bottom: 5px solid #78F4FF;
+  color: #78F4FF;
   display: flex;
-  // height: 150px;
+  font-family: 'Orbitron', sans-serif;
+    // height: 150px;
   // width: 150px;
   user-select: none;
   font-size: 15vh;
@@ -33,7 +50,7 @@
     border-bottom: 0;
   }
   &:hover {
-    background-color: tan;
+    background-color: #6CDBE6;
   }
 }
 
