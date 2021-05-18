@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Orbitron:wght@700&display=swap');
+
 body {
   font-family: 'Noto Sans', sans-serif;
   background-color: black;
@@ -17,7 +18,7 @@ h1 {
 
 .container {
   height: 80vh;
-  padding-top: 25px;
+  padding-top: 40px;
 }
 
 .board {
@@ -50,7 +51,7 @@ h1 {
     border-bottom: 0;
   }
   &:hover {
-    background-color: #6CDBE6;
+    background-color: #66CFD9;
   }
 }
 
