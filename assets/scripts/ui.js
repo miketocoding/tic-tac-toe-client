@@ -43,21 +43,16 @@ const signOutFailure = function () {
   $('#messaging').text('Sign out failed :(')
 }
 
-let currentPlayer = 'X'
-
 const newGameSuccess = function (res) {
-  $('#messaging').text(`New Game Created! You are player ${currentPlayer}`)
+  $('#messaging').text(`New Game Created! You are player ${store.currentPlayer}`)
   console.log(res, 'newGameSuccess response')
   $('#after-new-game').show()
   store.game = res.game
   console.log(store.game, 'The game data')
   // wipe the board if when 'New Game pressed'
   $('.box').text('')
-  store.game._id = res.game._id
-  const gameId = store.game._id
-  console.log(store.game._id, 'The game ID')
-  console.log(res.game._id, 'Also the game ID?')
-  console.log(gameId, 'This is store.game._id in a variable')
+  store.gameOver = false
+  store.currentPlayer = 'X'
 }
 
 const newGameFailure = function (err) {
@@ -67,6 +62,34 @@ const newGameFailure = function (err) {
 
 const makeMoveSuccess = function (res) {
   console.log('This is makeMoveSuccess response ', res)
+  store.game = res.game
+  const arrayData = store.game.cells
+
+  if (
+    (arrayData[0] === arrayData[1] && arrayData[0] === arrayData[2] && arrayData[0] !== '') ||
+    (arrayData[3] === arrayData[4] && arrayData[3] === arrayData[5] && arrayData[3] !== '') ||
+    (arrayData[6] === arrayData[7] && arrayData[6] === arrayData[8] && arrayData[6] !== '') ||
+    (arrayData[0] === arrayData[3] && arrayData[0] === arrayData[6] && arrayData[0] !== '') ||
+    (arrayData[1] === arrayData[4] && arrayData[1] === arrayData[7] && arrayData[1] !== '') ||
+    (arrayData[2] === arrayData[5] && arrayData[2] === arrayData[8] && arrayData[2] !== '') ||
+    (arrayData[0] === arrayData[4] && arrayData[0] === arrayData[8] && arrayData[0] !== '') ||
+    (arrayData[2] === arrayData[4] && arrayData[2] === arrayData[6] && arrayData[2] !== '')
+  ) {
+    store.gameOver = true
+    console.log('Game status, is game over?', store.gameOver)
+    // this is broken, you can't click after game is over and in new game
+    // $('.box').off('click')
+    // display who won
+    $('#messaging').text('Game Over, we have a winner')
+    // else if for a draw
+  } else if (arrayData[0] !== '' && arrayData[1] !== '' && arrayData[2] !== '' && arrayData[3] !== '' && arrayData[4] !== '' && arrayData[5] !== '' && arrayData[6] !== '' && arrayData[7] !== '' && arrayData[8] !== '') {
+    store.gameOver = true
+    console.log('Game status, is game over?', store.gameOver)
+    // $('.box').off('click')
+    $('#messaging').text('Game Over, it\'s a draw')
+  }
+  store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
+
   // const box = $(event.target)
   // if ($(box).text() === '') {
   //   box.text(currentPlayer)
