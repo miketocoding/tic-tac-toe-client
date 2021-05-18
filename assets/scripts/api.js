@@ -64,7 +64,6 @@ const newGame = function () {
 // }
 
 const makeMove = function (cellValue, cellIndex, gameOver) {
-  // console.log('this is the gameId: ', gameId)
   console.log('this is the cellValue: ', cellValue)
   console.log('this is the cellIndex: ', cellIndex)
   return $.ajax({

@@ -60,7 +60,7 @@ const onMakeMove = function (event) {
 
     api.makeMove(store.currentPlayer, cellIndex, gameOver)
       .then(ui.makeMoveSuccess)
-  // .catch(ui.makeMoveFailure)
+      .catch(ui.makeMoveFailure)
   }
 }
 

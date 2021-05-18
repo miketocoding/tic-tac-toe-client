@@ -89,56 +89,11 @@ const makeMoveSuccess = function (res) {
     $('#messaging').text('Game Over, it\'s a draw')
   }
   store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
-
-  // const box = $(event.target)
-  // if ($(box).text() === '') {
-  //   box.text(currentPlayer)
-  //   console.log(event.target, 'this is event.target')
-  //   console.log(store.game, 'this is game data')
-  //   const arrayData = store.game.cells
-  //   console.log('cell value data', $(box).text())
-  //   const cellValue = $(box).text()
-  //   console.log(cellValue, 'this is the cell value through a variable')
-  //   console.log('cell string data', $('.box').text())
-  //   const cellIndex = box.data('cell-index')
-  //   console.log('cell index position', cellIndex)
-  //   arrayData[cellIndex] = currentPlayer
-  //   store.game.cells[cellIndex] = cellValue
-  //
-  //   console.log(arrayData, 'this is array data')
-  //   currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-  // } else {
-  //   box.off('click', makeMoveSuccess)
-  // }
 }
 
 const makeMoveFailure = function (err) {
   console.error(err)
 }
-// const togglePlayerPosSuccess = function (res) {
-//   console.log(store.user.playerPos)
-//   if (store.user.playerPos === 'X') {
-//     store.user.playerPos = 'O'
-//   } else {
-//     store.user.playerPos = 'X'
-//   }
-//   console.log(store.user.playerPos)
-//   return store.user.playerPos
-// }
-
-// const playerPos = function () {
-// $('#messaging').text(`You are player ${playerPos()}`)
-//   console.log(store.user.playerPos)
-//   return (store.user.playerPos === 0 ? 'X' : 'O')
-
-// if (store.user.playerPos === 0) {
-//   return 'X'
-// } else {
-//   return 'Y'
-// }
-// }
-
-// const togglePlayerPosFailure = function () {}
 
 module.exports = {
   signUpSuccess,
@@ -151,7 +106,4 @@ module.exports = {
   newGameFailure,
   makeMoveSuccess,
   makeMoveFailure
-  // togglePlayerPosSuccess,
-  // togglePlayerPosFailure
-  // playerPos
 }
