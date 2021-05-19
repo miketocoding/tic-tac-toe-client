@@ -3,7 +3,7 @@
 Tic-tac-toe game recreated by Michael Van Le. This is a single or two person game where the player tests their skills against themself or another opponent. This application will allows the user to sign up, log in, log out, and play the game of tic-tac-toe. This project is a stepping stone to gaining more knowledge and experience in the world of software development.
 
 ## Important Links
-- [Mike's tic-tac-toe Client](https://miketocoding.github.io/tic-tac-toe-client/)
+- [Mike's deployed tic-tac-toe Client](https://miketocoding.github.io/tic-tac-toe-client/)
 
 ## Planning
 
@@ -23,6 +23,12 @@ Portrait Orientation, v1:
 
 Landscape Orientation, v1:
 ![Landscape tic-tac-toe wireframe v1](https://i.imgur.com/v256eG7.jpeg "tic-tac-toe wireframe v1")
+
+### Technologies Used
+- HTML/CSS
+- jQuery
+- Javascript
+- Bootstrap
 
 ### Rules/Instructions
 
