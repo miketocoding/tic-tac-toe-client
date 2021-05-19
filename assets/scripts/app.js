@@ -13,7 +13,6 @@ $(() => {
   $('#sign-in').on('submit', tttEvents.onSignIn)
   $('#sign-out').on('click', tttEvents.onSignOut)
   $('#new-game').on('click', tttEvents.onNewGame)
-  $('#toggle-player').on('click', tttEvents.onTogglePlayerPos)
   // $('#after-sign-in').hide()
   // $('#cell1').on('click', tttEvents.onAddX)
 
@@ -21,8 +20,4 @@ $(() => {
   // $('.box').on('click', tttEvents.dataAttr, tttEvents.onMakeMove)
 
   // $(event.target).on('click', tttEvents.onMakeMove)
-
-  // $('#cell0').on('click', function () {
-  //   $('<img src="./../../public/red-x.png">').appendTo('#cell0')
-  // })
 })

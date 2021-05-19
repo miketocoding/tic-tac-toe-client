@@ -39,30 +39,6 @@ const newGame = function () {
   })
 }
 
-// let currentPlayer = 'X'
-// const makeMove = function () {
-//   console.log('click')
-//   const box = $(event.target)
-//   if ($(box).text() === '') {
-//     box.text(currentPlayer)
-//     console.log(event.target, 'this is event.target')
-//     console.log(store.game, 'this is game data')
-//     const arrayData = store.game.cells
-//     console.log('cell value data', $(box).text())
-//     const cellValue = $(box).text()
-//     console.log(cellValue, 'this is the cell value through a variable')
-//     console.log('cell string data', $('.box').text())
-//     const cellIndex = box.data('cell-index')
-//     console.log('cell index position', cellIndex)
-//     arrayData[cellIndex] = currentPlayer
-//
-//     console.log(arrayData, 'this is array data')
-//     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-//   } else {
-//     box.off('click', makeMove)
-//   }
-// }
-
 const makeMove = function (cellValue, cellIndex, gameOver) {
   console.log('this is the cellValue: ', cellValue)
   console.log('this is the cellIndex: ', cellIndex)

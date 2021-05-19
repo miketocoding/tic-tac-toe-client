@@ -103,7 +103,7 @@ const makeMoveSuccess = function (res) {
     (arrayData[2] === 'O' && arrayData[4] === 'O' && arrayData[6] === 'O')
   ) {
     store.gameOver = true
-    $('#messaging').text('Game Over, Player O wins. You lose! Try your skill again!')
+    $('#messaging').text('Game Over, You lose! Player O wins. Try your skill again!')
   } else if (arrayData[0] !== '' && arrayData[1] !== '' && arrayData[2] !== '' && arrayData[3] !== '' && arrayData[4] !== '' && arrayData[5] !== '' && arrayData[6] !== '' && arrayData[7] !== '' && arrayData[8] !== '') {
     store.gameOver = true
     console.log('Game status, is game over?', store.gameOver)

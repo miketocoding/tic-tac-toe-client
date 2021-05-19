@@ -27,14 +27,14 @@ h3 {
 }
 
 .container {
-  height: 80vh;
+  height: 75vh;
   padding-top: 40px;
 }
 
 .board {
   margin: auto;
-  max-height: calc(80vh - 75px);
-  max-width: calc(80vh - 75px);
+  max-height: calc(75vh - 75px);
+  max-width: calc(75vh - 75px);
 }
 
 .box {
