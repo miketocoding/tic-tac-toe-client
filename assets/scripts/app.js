@@ -14,11 +14,5 @@ $(() => {
   $('#sign-in').on('submit', tttUserEvents.onSignIn)
   $('#sign-out').on('click', tttUserEvents.onSignOut)
   $('#new-game').on('click', tttGameEvents.onNewGame)
-  // $('#after-sign-in').hide()
-  // $('#cell1').on('click', tttEvents.onAddX)
-
   $('.box').on('click', tttGameEvents.onMakeMove)
-  // $('.box').on('click', tttEvents.dataAttr, tttEvents.onMakeMove)
-
-  // $(event.target).on('click', tttEvents.onMakeMove)
 })

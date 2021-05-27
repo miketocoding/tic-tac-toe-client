@@ -3,19 +3,15 @@
 const store = require('./../store')
 
 const signUpSuccess = function (res) {
-  // $('#sign-up').trigger('reset')
-  console.log(res)
   $('#messaging').text('Welcome, ' + res.user.email)
 }
 
-const signUpFailure = function (err) {
-  console.log(err)
+const signUpFailure = function () {
   $('#messaging').text('Failed to sign up')
 }
 
 const signInSuccess = function (res) {
   $('#sign-in').trigger('reset')
-  console.log(res, 'signInSuccess response')
   store.user = res.user
   $('#messaging').text(res.user.email + ', has signed in successfully!')
   $('#after-sign-in').show()
@@ -23,8 +19,7 @@ const signInSuccess = function (res) {
   $('#after-new-game').hide()
 }
 
-const signInFailure = function (err) {
-  console.error(err)
+const signInFailure = function () {
   $('#messaging').text('Failed to sign in')
 }
 

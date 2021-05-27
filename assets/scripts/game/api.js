@@ -14,8 +14,6 @@ const newGame = function () {
 }
 
 const makeMove = function (cellValue, cellIndex, gameOver) {
-  console.log('this is the cellValue: ', cellValue)
-  console.log('this is the cellIndex: ', cellIndex)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game._id,
